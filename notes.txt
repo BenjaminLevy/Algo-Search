@@ -1,0 +1,6 @@
+You MUST be in the "my-venv" python virtual environment to scrape.
+You do so by running the following from '~/coding/algo-search':
+	'source my-venv/bin/activate'
+From the docs:
+	"Virtual environments allow you to not conflict with already-installed Python system packages (which could break some of your system tools and scripts), and still install packages normally with pip (without sudo and the likes)."
+see: https://doc.scrapy.org/en/latest/intro/install.html#using-a-virtual-environment-recommended
