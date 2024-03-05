@@ -5,27 +5,26 @@ import scrapy
 class BeejGuideToCSpider(scrapy.Spider):
     name = "beej_guide_to_c"
     allowed_domains = ["beej.us"] # change to 
-    start_urls = ["https://beej.us/guide/bgc/html/split/foreword.html"]
-    #response.xpath("//body//text()")
+    start_urls = ["file:///home/benjamin/coding/algo-search/algo_search_project/site.html"]
+    
+    # https://beej.us/guide/bgc/html/split/foreword.html
     def parse(self, response):
-        page_title = response.css("h1::text").get()
-        raw_page_title = response.css("h1::attr(id)").get()
-        formatted_page_title = ' '.join(word.capitalize() for word in raw_page_title.split('-'))
-        # page = response.css("title::text").extract()
+        page_title_formatted = response.css("h1::text").get()
+        page_title_snake_case = response.css("h1::attr(id)").get()
         parsed_text_array = (response.xpath("//body//text()").getall())
         parsed_text_trimmed = parsed_text_array[6:-5]
+        # parsed_text_NOTjoined = 
+        final_text = [item for item in parsed_text_trimmed if item != '\n']
+        final_text = ' '.join(final_text)
+        
 
         with open('beej-index-and-titles-test.txt', 'a') as file:
-            file.write(f'{formatted_page_title}\n')
-        # filename = f'beej-{page_title}.html'
+            file.write(f'{final_text}\n')
+
+        # filename = f'beej-{page_title_snake_case}.html'
         # Path(f'./beej-guide-to-c/{filename}').write_text(parsed_text_trimmed)
         next_page = response.css('div[style="text-align:center"] a:last-of-type::attr(href)').getall()[-1]
-        # print('....................................')
-        # print()
-        # print('...................................')
         if next_page is not None:
-            with open('beej-index-and-titles-test.txt', 'a') as file:
-                file.write(f'{raw_page_title}...')
             next_page = response.urljoin(next_page)
             yield scrapy.Request(next_page, callback=self.parse)
 
