@@ -1,43 +1,42 @@
 Foreword
-Foreword
-hello-world.html...Hello World
-variables-and-statements.html...Variables And Statements
-functions.html...Functions
-pointers.html...Pointers
-arrays.html...Arrays
-strings.html...Strings
-structs.html...Structs
-file-inputoutput.html...File Inputoutput
-typedef-making-new-types.html...Typedef Making New Types
-pointers2.html...Pointers2
-manual-memory-allocation.html...Manual Memory Allocation
-scope.html...Scope
-types-ii-way-more-types.html...Types Ii Way More Types
-types-iii-conversions.html...Types Iii Conversions
-types-iv-qualifiers-and-specifiers.html...Types Iv Qualifiers And Specifiers
-multifile-projects.html...Multifile Projects
-the-outside-environment.html...The Outside Environment
-the-c-preprocessor.html...The C Preprocessor
-structs-ii-more-fun-with-structs.html...Structs Ii More Fun With Structs
-characters-and-strings-ii.html...Characters And Strings Ii
-enumerated-types-enum.html...Enumerated Types Enum
-pointers-iii-pointers-to-pointers-and-more.html...Pointers Iii Pointers To Pointers And More
-bitwise-operations.html...Bitwise Operations
-variadic-functions.html...Variadic Functions
-locale-and-internationalization.html...Locale And Internationalization
-unicode-wide-characters-and-all-that.html...Unicode Wide Characters And All That
-exiting-a-program.html...Exiting A Program
-signal-handling.html...Signal Handling
-variable-length-arrays-vlas.html...Variable Length Arrays Vlas
-goto.html...Goto
-types-part-v-compound-literals-and-generic-selections.html...Types Part V Compound Literals And Generic Selections
-arrays-part-ii.html...Arrays Part Ii
-setjmp-longjmp.html...Setjmp Longjmp
-incomplete-types.html...Incomplete Types
-complex-numbers.html...Complex Numbers
-fixed-width-integer-types.html...Fixed Width Integer Types
-date-and-time-functionality.html...Date And Time Functionality
-multithreading.html...Multithreading
-chapter-atomics.html...Chapter Atomics
-function-specifiers-alignment-specifiersoperators.html...Function Specifiers Alignment Specifiersoperators
-...
+foreword...Hello World
+hello-world...Variables And Statements
+variables-and-statements...Functions
+functions...Pointers
+pointers...Arrays
+arrays...Strings
+strings...Structs
+structs...File Inputoutput
+file-inputoutput...Typedef Making New Types
+typedef-making-new-types...Pointers2
+pointers2...Manual Memory Allocation
+manual-memory-allocation...Scope
+scope...Types Ii Way More Types
+types-ii-way-more-types...Types Iii Conversions
+types-iii-conversions...Types Iv Qualifiers And Specifiers
+types-iv-qualifiers-and-specifiers...Multifile Projects
+multifile-projects...The Outside Environment
+the-outside-environment...The C Preprocessor
+the-c-preprocessor...Structs Ii More Fun With Structs
+structs-ii-more-fun-with-structs...Characters And Strings Ii
+characters-and-strings-ii...Enumerated Types Enum
+enumerated-types-enum...Pointers Iii Pointers To Pointers And More
+pointers-iii-pointers-to-pointers-and-more...Bitwise Operations
+bitwise-operations...Variadic Functions
+variadic-functions...Locale And Internationalization
+locale-and-internationalization...Unicode Wide Characters And All That
+unicode-wide-characters-and-all-that...Exiting A Program
+exiting-a-program...Signal Handling
+signal-handling...Variable Length Arrays Vlas
+variable-length-arrays-vlas...Goto
+goto...Types Part V Compound Literals And Generic Selections
+types-part-v-compound-literals-and-generic-selections...Arrays Part Ii
+arrays-part-ii...Setjmp Longjmp
+setjmp-longjmp...Incomplete Types
+incomplete-types...Complex Numbers
+complex-numbers...Fixed Width Integer Types
+fixed-width-integer-types...Date And Time Functionality
+date-and-time-functionality...Multithreading
+multithreading...Chapter Atomics
+chapter-atomics...Function Specifiers Alignment Specifiersoperators
+function-specifiers-alignment-specifiersoperators...
