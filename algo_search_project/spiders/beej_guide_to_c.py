@@ -1,6 +1,6 @@
 from pathlib import Path
 import scrapy
-
+import json
 
 class BeejGuideToCSpider(scrapy.Spider):
     name = "beej_guide_to_c"
@@ -13,12 +13,17 @@ class BeejGuideToCSpider(scrapy.Spider):
         page_title_snake_case = response.css("h1::attr(id)").get()
         parsed_text_array = (response.xpath("//body//text()").getall())
         parsed_text_trimmed = parsed_text_array[6:-5]
-        # parsed_text_NOTjoined = 
-        final_text = [item for item in parsed_text_trimmed if item != '\n']
+        final_text = [item for item in parsed_text_array if item != '\n']
         final_text = ' '.join(final_text)
+
+        data = {
+                'body': final_text,
+                'page_title': page_title_formatted,
+                'url': response.url
+                }
         
 
-        with open('beej-index-and-titles-test.txt', 'a') as file:
+        with open('', 'a') as file:
             file.write(f'{final_text}\n')
 
         # filename = f'beej-{page_title_snake_case}.html'
