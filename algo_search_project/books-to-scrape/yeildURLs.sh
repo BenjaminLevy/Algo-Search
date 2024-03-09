@@ -4,16 +4,20 @@ set -e
 
 # Allows case match on number
 shopt -s extglob
-end=$((${1} + 10))
+valuefile="./last-processed-line-for-yeildURLs.txt"
+start=$(cat "$valuefile")
+end=$((${start} + 10))
 main() {
-	case $1 in
+	case $start in
 		+([0-9]))
 			while true; do
-				urlArr=`head --lines=${end} good-urls.txt | tail`
-				echo "current URLs:"
+				urlArr=`head --lines=${end} good-urls.txt | tail | readarray -t`
+				# echo "current URLs:"
 				echo $urlArr
-				for item in "${urlArr[@]}"; do processLink item 
+				for item in "${urlArr[@]}"; do 
+					processLink $item 
 				done
+				echo ${end} > "./last-processed-line-for-yeildURLs.txt"
 				end=$((${end} + 10))
 				read -p "press any key to open 10 more" -n1 -s
 			done
