@@ -11,12 +11,10 @@ main() {
 	case $start in
 		+([0-9]))
 			while true; do
-				urlArr=`head --lines=${end} good-urls.txt | tail | readarray -t`
+				urlArr=`head --lines=${end} good-urls.txt | tail` 
 				# echo "current URLs:"
 				echo $urlArr
-				for item in "${urlArr[@]}"; do 
-					processLink $item 
-				done
+				google-chrome $urlArr 2>/dev/null
 				echo ${end} > "./last-processed-line-for-yeildURLs.txt"
 				end=$((${end} + 10))
 				read -p "press any key to open 10 more" -n1 -s
