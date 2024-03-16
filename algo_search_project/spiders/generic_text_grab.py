@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime
+from math import floor
 import scrapy
 import json
 import csv
@@ -12,7 +13,7 @@ class GenericSpider(scrapy.Spider):
     name = "generic_text_grab"
     url_count = 0
     start_urls = []
-    with open('/home/benjamin/coding/algo-search/algo_search_project/books-to-scrape/gitbook-links-for-test.txt', 'r') as file:
+    with open('/home/benjamin/coding/algo-search/algo_search_project/books-to-scrape/links-to-scrape.txt', 'r') as file:
         start_urls = [line.rstrip() for line in file]
     def parse(self, response):
         chapter_title_formatted = response.css("h1::text").get()
@@ -29,14 +30,14 @@ class GenericSpider(scrapy.Spider):
                 }
         data_json = json.dumps(data_obj, ensure_ascii=False) 
        
-        with open(f'./page_{self.url_count % 10}', 'a') as file:
+        with open(f'pages/page_{floor(self.url_count / 10)}', 'a') as file:
         
             file.write('{ "index": { "_index": "sites" } }\n')
             file.write(f'{data_json}\n')
         self.url_count += 1
         # filename = f'beej-{page_title_snake_case}.html'
         # Path(f'./beej-guide-to-c/{filename}').write_text(parsed_text_trimmed)
-        next_page = response.css('div[style="text-align:center"] a:last-of-type::attr(href)').getall()[-1]
+        # next_page = response.css('div[style="text-align:center"] a:last-of-type::attr(href)').getall()[-1]
         # if next_page is not None:
         #     next_page = response.urljoin(next_page)
         #     yield scrapy.Request(next_page, callback=self.parse)
