@@ -4,3 +4,36 @@ You do so by running the following from '~/coding/algo-search':
 From the docs:
 	"Virtual environments allow you to not conflict with already-installed Python system packages (which could break some of your system tools and scripts), and still install packages normally with pip (without sudo and the likes)."
 see: https://doc.scrapy.org/en/latest/intro/install.html#using-a-virtual-environment-recommended
+
+---------------- ---------------- ---------------- ----------------
+Beautiful Soup docs:
+
+soup.title.string
+# u'The Dormouse's story'
+on upload:
+title: soup.title.string
+
+use lxml
+
+SKIP ALL OF THESE:
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/#for-html-documents
+Beautiful Soup defines a few NavigableString subclasses which make it easier to pick out the main body of the page, by ignoring strings that probably represent programming directives found within the page. (These classes are new in Beautiful Soup 4.9.0, and the html5lib parser doesn’t use them.)
+
+class bs4.Stylesheet
+A NavigableString subclass that represents embedded CSS stylesheets; that is, any strings found inside a <style> tag during document parsing.
+
+class bs4.Script
+A NavigableString subclass that represents embedded Javascript; that is, any strings found inside a <script> tag during document parsing.
+
+class bs4.Template
+A NavigableString subclass that represents embedded HTML templates; that is, any strings found inside a <template> tag during document parsing.
+
+SoupStrainer("body")
+u.encode("utf8")
+
+review json standard for acceptable escaped chars. remove all escaped chars not listed
+
+opensearch login url:
+https://search-algo-search-v1-bzo5parvuraxh6dyzk4rhiom2m.aos.us-east-1.on.aws/_dashboards/app/login?
+
+remove div[data-target]
