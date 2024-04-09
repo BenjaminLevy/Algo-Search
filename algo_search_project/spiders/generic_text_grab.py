@@ -1,11 +1,10 @@
 from bs4 import BeautifulSoup
-from pathlib import Path
-from datetime import datetime
 from math import floor
 import scrapy
 import json
 import csv
 import re
+import time
 
 class GenericSpider(scrapy.Spider):
 
@@ -32,7 +31,8 @@ class GenericSpider(scrapy.Spider):
                 'title_element': title,
                 'chapter_title': chapter_title,
                 'url': response.url,
-                'body': body
+                'body': body,
+                'time': int(time.time())
                 }
         data_json = json.dumps(data_obj, ensure_ascii=False) 
        

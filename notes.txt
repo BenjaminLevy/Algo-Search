@@ -37,3 +37,10 @@ opensearch login url:
 https://search-algo-search-v1-bzo5parvuraxh6dyzk4rhiom2m.aos.us-east-1.on.aws/_dashboards/app/login?
 
 remove div[data-target]
+
+OpenSearch queries, 2024-03-20
+search, number of hits
+prefix: http, 852
+prefix: https, 846
+regexp: .*beej.*, 108
+regexp + not: .*beej.*, 744
