@@ -18,14 +18,31 @@ def lambda_handler(event, context):
     print(event)
     print('------------------------------------')
     print(event['queryStringParameters'])
-    query = {
-        "size": 25,
-        "query": {
-            "multi_match": {
-                "query": event['queryStringParameters']['q'],
-                "fields": ["title_element^4", "chapter_title^2", "body"]
-            }
+
+    query ={
+      "size": 20, 
+      "query": {
+        "multi_match": {
+          "query": event['queryStringParameters']['q'],
+          "fields": ["page_title^2", "body"],
+          "type": "most_fields"
         }
+        
+      },
+      "highlight": {
+        "pre_tags": [
+          "<strong>"
+        ],
+        "post_tags": [
+          "</strong>"
+        ],
+        "fields": {
+          "body": {}
+        }
+      },
+      "_source":{
+        "excludes": "body"
+      }
     }
 
     headers = { "Content-Type": "application/json" }
