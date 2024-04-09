@@ -28,6 +28,7 @@ class GenericSpider(scrapy.Spider):
     def parse(self, response):
         [title, chapter_title, body]= extract_text(response.text) 
         data_obj = {
+                '_id': response.url,
                 'title_element': title,
                 'chapter_title': chapter_title,
                 'url': response.url,
@@ -54,7 +55,11 @@ def extract_text(html):
   
     # ignore reportOptionalMemberAccess warning
     title = soup.title.text
-    chapter_title = soup.h1.text
+    try:
+        chapter_title = soup.title.text
+    except AttributeError:
+        chapter_title = "untitled"
+
     # kill all script and style elements
     # need to remove math elements?
     for script in soup(['style', 'script', '[document]', 'head', 'object', 'link', 'template', 'math', 'footer']):

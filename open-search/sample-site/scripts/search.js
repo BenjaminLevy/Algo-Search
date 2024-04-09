@@ -36,7 +36,7 @@ async function search() {
         let body = results[item].highlight.body.join(" [...] ");
         let chapter_title = results[item]._source.chapter_title;
         // Construct the full HTML string that we want to append to the div
-        resultdiv.append('<div class="result">' + '<div><a href="' + url + '"><h2>' + title + ' &ndash; ' +  chapter_title + '</h2><h3>' + url.slice(0,50) + '...</h3></a><p>' + body + '</p></div></div>');
+        resultdiv.append('<div class="result">' + '<div><a href="' + url + '"><h2>' + title + ' &ndash; ' +  chapter_title + '</h2><h3>' + url.slice(0,75) + '...</h3></a><p>' + body + '</p></div></div>');
       }
     } else {
       noresults.show();
