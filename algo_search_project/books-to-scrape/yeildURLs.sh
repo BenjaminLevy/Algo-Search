@@ -17,7 +17,7 @@ main() {
 				google-chrome $urlArr 2>/dev/null
 				echo ${end} > "./last-processed-line-for-yeildURLs.txt"
 				end=$((${end} + 10))
-				read -p "press any key to open 10 more" -n1 -s
+				read -p "press any key to open 10 more" -s
 			done
 			;;
 		*)

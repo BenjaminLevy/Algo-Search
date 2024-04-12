@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup
 from math import floor
 import scrapy
 import json
-import csv
-import re
 import time
 
 class GenericSpider(scrapy.Spider):
@@ -26,9 +24,17 @@ class GenericSpider(scrapy.Spider):
     name = "generic_text_grab"
     url_count = 0
     def parse(self, response):
+
+        index_obj = {
+                'index': { 
+                          '_index': 'sites',
+                          '_id': response.url
+                          }
+        }
+        index_json = json.dumps(index_obj, ensure_ascii=False) 
+
         [title, chapter_title, body]= extract_text(response.text) 
         data_obj = {
-                '_id': response.url,
                 'title_element': title,
                 'chapter_title': chapter_title,
                 'url': response.url,
@@ -37,17 +43,10 @@ class GenericSpider(scrapy.Spider):
                 }
         data_json = json.dumps(data_obj, ensure_ascii=False) 
        
-        # with open(f'pages/page_{floor(self.url_count / 10)}', 'a') as file:
         with open(f'{self.prefix}_{floor(self.url_count / 10)}', 'a') as file:
-            file.write('{ "index": { "_index": "sites" } }\n')
+            file.write(f'{index_json}\n')
             file.write(f'{data_json}\n')
         self.url_count += 1
-        # filename = f'beej-{page_title_snake_case}.html'
-        # Path(f'./beej-guide-to-c/{filename}').write_text(parsed_text_trimmed)
-        # next_page = response.css('div[style="text-align:center"] a:last-of-type::attr(href)').getall()[-1]
-        # if next_page is not None:
-        #     next_page = response.urljoin(next_page)
-        #     yield scrapy.Request(next_page, callback=self.parse)
 
 # source: https://stackoverflow.com/questions/1936466/how-to-scrape-only-visible-webpage-text-with-beautifulsoup/73701993#73701993
 def extract_text(html):
