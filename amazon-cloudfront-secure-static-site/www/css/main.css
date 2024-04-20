@@ -1,0 +1,54 @@
+#noresults, #loading {
+  display: none;
+}
+
+body {
+  margin: 2rem;
+  max-width: 800px;
+}
+
+h1, h2, h3, input, p {
+  font-weight: 400;
+  font-family: sans-serif;
+  margin: 1rem 0;
+}
+
+h2 {
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+
+h3 {
+  margin-top: .25rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: dimgray;
+}
+
+input, p {
+  font-size: 1rem;
+}
+
+input {
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: SteelBlue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 7.5rem;
+  vertical-align: top;
+  margin: 0 2rem 2rem 0;
+}
+
+.result {
+  display: flex;
+}
