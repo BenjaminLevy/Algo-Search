@@ -32,7 +32,6 @@ class GenericSpider(scrapy.Spider):
                           }
         }
         index_json = json.dumps(index_obj, ensure_ascii=False) 
-
         [title, chapter_title, body]= extract_text(response.text) 
         data_obj = {
                 'title_element': title,
@@ -53,11 +52,15 @@ def extract_text(html):
     soup = BeautifulSoup(html, "lxml")
   
     # ignore reportOptionalMemberAccess warning
-    title = soup.title.text
     try:
-        chapter_title = soup.title.text
+        title = soup.title.text
     except AttributeError:
-        chapter_title = "untitled"
+        title = ""
+    
+    try:
+        chapter_title = soup.h1.text
+    except Exception:
+        chapter_title = ""
 
     # kill all script and style elements
     # need to remove math elements?

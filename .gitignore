@@ -2,3 +2,8 @@ my-venv/
 tutorial/
 misc/
 upload.sh
+crawl*
+books-to-scrape/
+amazon-cloudfront-secure-static-site/*
+!amazon-cloudfront-secure-static-site/www/
+__pycache__
